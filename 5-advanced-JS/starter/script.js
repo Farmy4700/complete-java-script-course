@@ -12,6 +12,7 @@ function arrayCalc(arr, fn) {
 
 function calculateAge(el) {
     return 2016 - el;
+    
 }
 
 function isFullAge(el) {
