@@ -222,10 +222,21 @@ console.log(ages);
 console.log(fullJapan);
 */
 
+var id = "10.10.10.10";
+var privateIP;
+if (/^(10)\.(.*)\.(.*)\.(.*)$/.test(id)){
+  privateIP=(true);
+}else if (/^(172)\.(1[6-9]|2[0-9]|3[0-1])\.(.*)\.(.*)$/.test(id)){
+    privateIP=(true);
+}else if (/^(192)\.(168)\.(.*)\.(.*)$/.test(id)){
+    privateIP=(true);
+}else {
+  privateIP=(false);
+}
 
 
 
-func
+
 
 
 
