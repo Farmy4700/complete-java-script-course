@@ -98,7 +98,7 @@ var UIController = (function() {
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
 
 
-        }
+        },
 
 
 
@@ -137,7 +137,8 @@ var controller = (function(budgetCtrl, UICtrl) {
         newItem = budgetController.addItem(input.type, input.description, input.value);
 
         // 3. Add new item to UI
-        // 4. Calculate teh budget
+        UICtrl.addListItem(newItem, input.type);
+        // 4. Calculate the budget
         // 5. Display the budget
     };
 
