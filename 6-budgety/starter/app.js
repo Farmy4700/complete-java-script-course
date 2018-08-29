@@ -85,7 +85,7 @@ var UIController = (function() {
                 html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">+ %value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp') {
                 element = DOMstrings.expensesContainer;
-                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div>     </div>';
+                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
 
             }
                        
@@ -100,7 +100,18 @@ var UIController = (function() {
 
         },
 
+        clearFields: function() {
+            var fields, fieldsArr;
+            
+            fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
 
+            var fieldsArr = Array.prototype.slice.call(fields);
+            fieldsArr.array.forEach(function(current, index, array) {
+                current.value = '';    
+            });
+            fieldsArr[0].focus();
+
+        },
 
         getDOMstrings: function() {
             return DOMstrings;
@@ -138,6 +149,8 @@ var controller = (function(budgetCtrl, UICtrl) {
 
         // 3. Add new item to UI
         UICtrl.addListItem(newItem, input.type);
+        // Clear the fields
+        UICtrl.clearFields();
         // 4. Calculate the budget
         // 5. Display the budget
     };
